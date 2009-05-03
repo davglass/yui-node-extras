@@ -1,2 +1,26 @@
 h1. YUI3 Node Extras
 
+Before anyone bashes me for it. Yes, these methods are influenced by the same methods in jQuery and I got permission from them to use them :D
+
+h2. Node Methods:
+
+* hover
+* append
+* prepend
+* html
+* css
+* remove
+* empty
+
+h2. NodeList Methods:
+
+* odd
+* even
+* end
+* css
+* html
+* append
+* prepend
+* remove
+* empty
+* hover
