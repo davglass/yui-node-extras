@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Example</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+    <link rel="stylesheet" type="text/css" href="http://developer.yahoo.com/yui/assets/dpSyntaxHighlighter.css">
+    <style type="text/css" media="screen">
+        p, h2 {
+            margin: 1em;
+        }
+        #demo {
+            border: 1px solid black;
+            background-color: #ccc;
+            height: 100px;
+            width: 100px;
+        }
+        #demo.over {
+            background-color: yellow;
+        }
+	</style>
+</head>
+<body>
+<div id="doc3" class="yui-t7">
+    <div id="hd"><h1 id="header">Example</h1></div>
+    <div id="bd">
+        <div id="demo"><strong>Here.</strong></div>
+        <ul>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+        </ul>
+    </div>
+    <div id="ft">&nbsp;</div>
+</div>
+<script src="http://github.com/yui/yui3/raw/master/build/yui/yui-min.js"></script>
+<script src="node-extras.js"></script>
+<script>
+    YUI({
+        base: 'http://github.com/yui/yui3/raw/master/build/',
+        combo: false
+    }).use('node', 'node-extras', 'selector-css3', function(Y) {
+        console.log(Y);
+        Y.get('#demo').hover(function() {
+            this.addClass('over');
+        }, function() {
+            this.removeClass('over');
+        });
+        Y.get('#demo').on('click', function() {
+            this.append(' **foo** ');
+            this.css('backgroundColor', 'red');
+        });
+        //Y.all('li:nth-child(odd)').setStyle('backgroundColor', 'blue');
+        //Y.all('#bd ul li').odd().setStyle('color', 'yellow');
+        //Y.all('#bd ul li').even().setStyle('color', 'red').end().setStyle('border', '1px solid black');
+        Y.all('#bd ul li').hover(function() {
+            this.css('fontWeight', 'bold');
+            this.append('<span> ***</span>');
+        }, function() {
+            this.css('fontWeight', '');
+            this.query('span:last-child').remove();
+        });
+
+    });
+</script>
+</body>
+</html>
